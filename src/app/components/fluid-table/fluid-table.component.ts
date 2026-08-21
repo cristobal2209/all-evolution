@@ -50,7 +50,7 @@ const RATING_ORDER: Record<Rating, number> = {
           </ng-container>
 
           <ng-container matColumnDef="norms">
-            <th mat-header-cell *matHeaderCellDef>Normas</th>
+            <th mat-header-cell *matHeaderCellDef>Normas y esp.</th>
             <td mat-cell *matCellDef="let oil">
               <div class="norms-cell">
                 @for (norm of oil.norms; track norm) {

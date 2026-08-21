@@ -16,11 +16,11 @@
     font-size: 2rem;
     font-weight: 700;
     margin: 0;
-    background: linear-gradient(135deg, var(--accent-color), #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
   }
+
+  .l-red { color: #ff1744; }
+  .l-yellow { color: #ffd600; }
 
   p {
     margin: 0.5rem 0 0;
@@ -48,9 +48,62 @@
 }
 
 .tab-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
+
+  mat-icon {
+    font-size: 1.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+}
+
+.section-tabs {
+  ::ng-deep .mat-mdc-tab-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.25rem;
+  }
+
+  ::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  ::ng-deep .mdc-tab--active .mdc-tab__text-label {
+    color: var(--accent-color) !important;
+  }
+}
+
+.docs-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+
+  mat-icon {
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  p {
+    margin: 0;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
 }
 
 .tab-content {

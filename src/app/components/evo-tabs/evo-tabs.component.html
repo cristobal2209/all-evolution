@@ -1,7 +1,6 @@
 <div class="evo-container">
   <header class="evo-header">
-    <h1>ALL EVOLUTION</h1>
-    <p>La información en un solo lugar</p>
+    <h1>A<span class="l-red">l</span><span class="l-yellow">l</span> Evolution</h1>
   </header>
 
   <mat-tab-group class="evo-tabs" animationDuration="200ms">
@@ -37,21 +36,45 @@
             </div>
           </div>
 
-          @if (model.variants.length > 1) {
-            <div class="variant-selector">
-              <span class="variant-label">Versión:</span>
-              <div class="variant-buttons">
-                @for (variant of model.variants; track variant) {
-                  <button
-                    class="variant-btn"
-                    [class.active]="selectedVariant[model.id] === variant"
-                    (click)="onVariantChange(model.id, variant)">
-                    {{ variant }}
-                  </button>
-                }
+          <mat-tab-group class="section-tabs" animationDuration="200ms" [selectedIndex]="1">
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <span class="tab-label">
+                  <mat-icon>description</mat-icon>
+                  Documentación
+                </span>
+              </ng-template>
+
+              <div class="docs-placeholder">
+                <mat-icon>folder_open</mat-icon>
+                <p>Documentación de mantenimiento</p>
+                <span>Aquí se publicarán los PDFs de mantenimiento del EVO {{ model.id }}</span>
               </div>
-            </div>
-          }
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <span class="tab-label">
+                  <mat-icon>oil_barrel</mat-icon>
+                  Lubricantes
+                </span>
+              </ng-template>
+
+              @if (model.variants.length > 1) {
+                <div class="variant-selector">
+                  <span class="variant-label">Versión:</span>
+                  <div class="variant-buttons">
+                    @for (variant of model.variants; track variant) {
+                      <button
+                        class="variant-btn"
+                        [class.active]="selectedVariant[model.id] === variant"
+                        (click)="onVariantChange(model.id, variant)">
+                        {{ variant }}
+                      </button>
+                    }
+                  </div>
+                </div>
+              }
 
           <mat-accordion class="fluid-accordion" multi>
             <mat-expansion-panel class="fluid-panel" expanded>
@@ -239,6 +262,8 @@
                 [oils]="getSpecs(model).recommendedTransferOils" />
             </mat-expansion-panel>
           </mat-accordion>
+            </mat-tab>
+          </mat-tab-group>
         </div>
       </mat-tab>
     }
