@@ -4,96 +4,70 @@ const ENGINE_OILS = {
   mobil1_5w30: { brand: 'Mobil 1', product: 'ESP Formula 5W-30', viscosity: '5W-30', apiSpec: 'SP/CF', norms: ['API SP', 'ACEA C3', 'BMW LL-04', 'MB 229.52'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
   castrol_edge_5w30: { brand: 'Castrol', product: 'Edge 5W-30', viscosity: '5W-30', apiSpec: 'A3/B4', norms: ['ACEA A3/B4', 'BMW LL-01', 'VW 502/505'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
   motul_8100_5w40: { brand: 'Motul', product: '8100 X-cess 5W-40', viscosity: '5W-40', apiSpec: 'A3/B4', norms: ['ACEA A3/B4', 'BMW LL-01', 'MB 229.5', 'VW 502/505'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  redline_5w30: { brand: 'Red Line', product: '5W-30', viscosity: '5W-30', apiSpec: 'SN/SM', norms: ['API SN', 'ILSAC GF-5'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  amsoil_sig_5w30: { brand: 'Amsoil', product: 'Signature Series 5W-30', viscosity: '5W-30', apiSpec: 'SP/SN+', norms: ['API SP', 'ILSAC GF-6', 'DEXOS 2'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
-  liquimoly_10w40: { brand: 'Liqui Moly', product: 'Synthoil HT 10W-40', viscosity: '10W-40', apiSpec: 'A3/B4', norms: ['ACEA A3/B4', 'BMW LL-01', 'MB 229.5'], daily: 'high' as const, trackDay: 'medium' as const, fullRacing: 'low' as const },
-  motul_300v_5w30: { brand: 'Motul', product: '300V 5W-30', viscosity: '5W-30', apiSpec: 'SN', norms: ['API SN', 'JASO MA2'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  redline_10w40: { brand: 'Red Line', product: '10W-40', viscosity: '10W-40', apiSpec: 'SN/SM', norms: ['API SN', 'JASO MA2'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  amsoil_dom_5w30: { brand: 'Amsoil', product: 'Dominator 5W-30', viscosity: '5W-30', apiSpec: 'SN', norms: ['API SN', 'JASO MA2'], daily: 'low' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  redline_5w30: { brand: 'Red Line', product: '5W-30', viscosity: '5W-30', apiSpec: 'SN/SM', norms: ['API SN', 'ACEA A3/B4'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  amsoil_sig_5w30: { brand: 'Amsoil', product: 'Signature Series 5W-30', viscosity: '5W-30', apiSpec: 'SP/SN+', norms: ['API SP', 'ILSAC GF-6', 'DEXOS 1'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  liquimoly_synthoil_5w40: { brand: 'Liqui Moly', product: 'Synthoil High Tech 5W-40', viscosity: '5W-40', apiSpec: 'A3/B4', norms: ['ACEA A3/B4', 'API SN', 'BMW LL-98', 'MB 229.3'], daily: 'high' as const, trackDay: 'medium' as const, fullRacing: 'low' as const },
+  motul_300v_5w30: { brand: 'Motul', product: '300V Power 5W-30', viscosity: '5W-30', apiSpec: 'Racing (sin API)', norms: ['Uso racing', 'Sin homologación API/JASO'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  redline_10w40: { brand: 'Red Line', product: '10W-40', viscosity: '10W-40', apiSpec: 'SN/SM', norms: ['API SN', 'ACEA A3/B4'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  amsoil_dom_10w30: { brand: 'Amsoil', product: 'Dominator 10W-30', viscosity: '10W-30', apiSpec: 'Racing (sin API)', norms: ['Uso racing', 'Sin homologación API'], daily: 'low' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
   penzoil_ultra_5w30: { brand: 'Penzoil', product: 'Ultra Platinum 5W-30', viscosity: '5W-30', apiSpec: 'SN+', norms: ['API SP', 'ILSAC GF-6', 'DEXOS 1'], daily: 'high' as const, trackDay: 'medium' as const, fullRacing: 'low' as const },
   shell_pennzoil_5w40: { brand: 'Shell Helix', product: 'Ultra 5W-40', viscosity: '5W-40', apiSpec: 'A3/B4', norms: ['ACEA A3/B4', 'Porsche A40', 'BMW LL-01'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
-  idemitsu_5w30: { brand: 'Idemitsu', product: 'ZP 5W-30', viscosity: '5W-30', apiSpec: 'SN+', norms: ['API SP', 'ILSAC GF-6', 'DEXOS 1'], daily: 'high' as const, trackDay: 'medium' as const, fullRacing: 'low' as const },
+  idemitsu_5w30: { brand: 'Idemitsu', product: 'Full Synthetic 5W-30', viscosity: '5W-30', apiSpec: 'SP/GF-6', norms: ['API SP', 'ILSAC GF-6', 'FORD WSS-M2C961-A1'], daily: 'high' as const, trackDay: 'medium' as const, fullRacing: 'low' as const },
 };
 
 const TRANS_OILS = {
-  redline_mt85: { brand: 'Red Line', product: 'MT-85', viscosity: '75W-85', apiSpec: 'GL-4', norms: ['API GL-4', 'MIL-L-2105'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  redline_mt90: { brand: 'Red Line', product: 'MT-90', viscosity: '75W-90', apiSpec: 'GL-4', norms: ['API GL-4', 'MIL-L-2105'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  motul_gear300_75w90: { brand: 'Motul', product: 'Gear 300 75W-90', viscosity: '75W-90', apiSpec: 'GL-4', norms: ['API GL-4'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  penzoil_synchromesh: { brand: 'Pennzoil', product: 'Synchromesh', viscosity: '75W-80', apiSpec: 'GL-4', norms: ['API GL-4', 'MIL-L-2105'], daily: 'high' as const, trackDay: 'medium' as const, fullRacing: 'medium' as const },
+  redline_mt85: { brand: 'Red Line', product: 'MT-85', viscosity: '75W-85', apiSpec: 'GL-4', norms: ['API GL-4'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  redline_mt90: { brand: 'Red Line', product: 'MT-90', viscosity: '75W-90', apiSpec: 'GL-4', norms: ['API GL-4'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  motul_gear300_75w90: { brand: 'Motul', product: 'Gear 300 75W-90', viscosity: '75W-90', apiSpec: 'GL-4/GL-5', norms: ['API GL-4', 'API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  penzoil_synchromesh: { brand: 'Pennzoil', product: 'Synchromesh', viscosity: '75W-85', apiSpec: 'GLS', norms: ['GM 9985648', 'CHRYSLER MS-9224'], daily: 'high' as const, trackDay: 'medium' as const, fullRacing: 'medium' as const },
   redline_mtl: { brand: 'Red Line', product: 'MTL', viscosity: '75W-80', apiSpec: 'GL-4', norms: ['API GL-4'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
   mitsubishi_sstf1: { brand: 'Mitsubishi', product: 'DiaQueen SSTF-I', viscosity: 'SSTF-I', apiSpec: 'OEM', norms: ['OEM Mitsubishi'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  ravenol_mtf2: { brand: 'Ravenol', product: 'MTF-2 75W-80', viscosity: '75W-80', apiSpec: 'GL-4', norms: ['API GL-4', 'API MT-1', 'BMW MTF LT-2'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  roewe_topgear_fe: { brand: 'ROWE', product: 'TOPGEAR FE 75W-80', viscosity: '75W-80', apiSpec: 'GL-4/GL-5', norms: ['API GL-4', 'TOYOTA JWS 227'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
 };
 
 const DIFF_OILS = {
-  redline_heavy_shockproof: { brand: 'Red Line', product: 'Heavy Shockproof', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  motul_gear300_75w90: { brand: 'Motul', product: 'Gear 300 75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  amsoil_severe_75w90: { brand: 'Amsoil', product: 'Severe Gear 75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
-  motul_gear300_75w140: { brand: 'Motul', product: 'Gear 300 75W-140', viscosity: '75W-140', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  redline_heavy_shockproof: { brand: 'Red Line', product: 'Heavy ShockProof', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  motul_gear300_75w90: { brand: 'Motul', product: 'Gear 300 75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  amsoil_severe_75w90: { brand: 'Amsoil', product: 'Severe Gear 75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-PRF-2105E'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  motul_gear_comp_75w140: { brand: 'Motul', product: 'Gear Competition 75W-140', viscosity: '75W-140', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  ravenol_vsg_75w90: { brand: 'Ravenol', product: 'VSG 75W-90', viscosity: '75W-90', apiSpec: 'GL-4/GL-5', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  roewe_topgear_75w90: { brand: 'ROWE', product: 'TOPGEAR 75W-90 S', viscosity: '75W-90', apiSpec: 'GL-4/GL-5', norms: ['API GL-5', 'MIL-PRF-2105E'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  redline_75w140: { brand: 'Red Line', product: '75W-140', viscosity: '75W-140', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-L-2105E'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  roewe_topgear_ls: { brand: 'ROWE', product: 'TOPGEAR 75W-90 HC-LS', viscosity: '75W-90', apiSpec: 'GL-5 LS', norms: ['API GL-5 LS', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  ravenol_ls_75w90: { brand: 'Ravenol', product: 'LS 75W-90', viscosity: '75W-90', apiSpec: 'GL-5 LS', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
 };
 
 const TRANSFER_OILS = {
-  redline_75w90: { brand: 'Red Line', product: '75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  motul_gear_ff: { brand: 'Motul', product: 'Gear FF Competition 75W-140', viscosity: '75W-140', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
-  amsoil_severe_75w90: { brand: 'Amsoil', product: 'Severe Gear 75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
-  motul_gear_90pa: { brand: 'Motul', product: 'Gear 90PA', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  redline_75w90: { brand: 'Red Line', product: '75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-L-2105E'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  motul_gear_ff: { brand: 'Motul', product: 'Gear Competition 75W-140', viscosity: '75W-140', apiSpec: 'GL-5', norms: ['API GL-5'], daily: 'medium' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  amsoil_severe_75w90: { brand: 'Amsoil', product: 'Severe Gear 75W-90', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-PRF-2105E'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  motul_gear_90pa: { brand: 'Motul', product: '90 PA', viscosity: 'SAE 90', apiSpec: 'GL-4/GL-5', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  redline_75w90ns: { brand: 'Red Line', product: '75W90NS (non-slip)', viscosity: '75W-90', apiSpec: 'GL-5', norms: ['API GL-5', 'MIL-L-2105E'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  motul_gear300_ls: { brand: 'Motul', product: 'Gear 300 LS 75W-90', viscosity: '75W-90', apiSpec: 'GL-5 LS', norms: ['API GL-5'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
+  ravenol_vsg_75w90: { brand: 'Ravenol', product: 'VSG 75W-90', viscosity: '75W-90', apiSpec: 'GL-4/GL-5', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  roewe_topgear_75w90s: { brand: 'ROWE', product: 'TOPGEAR 75W-90 S', viscosity: '75W-90', apiSpec: 'GL-4/GL-5', norms: ['API GL-5', 'MIL-PRF-2105E'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'medium' as const },
+  ravenol_ls_75w90: { brand: 'Ravenol', product: 'LS 75W-90', viscosity: '75W-90', apiSpec: 'GL-5 LS', norms: ['API GL-5', 'MIL-L-2105D'], daily: 'high' as const, trackDay: 'high' as const, fullRacing: 'high' as const },
 };
 
-function standardEngineOils() {
-  return [
-    ENGINE_OILS.mobil1_5w30,
-    ENGINE_OILS.castrol_edge_5w30,
-    ENGINE_OILS.motul_8100_5w40,
-    ENGINE_OILS.redline_5w30,
-    ENGINE_OILS.amsoil_sig_5w30,
-    ENGINE_OILS.liquimoly_10w40,
-  ];
-}
-
 function standardEngineOils4g63() {
-  return [
-    ENGINE_OILS.mobil1_5w30,
-    ENGINE_OILS.castrol_edge_5w30,
-    ENGINE_OILS.motul_8100_5w40,
-    ENGINE_OILS.redline_5w30,
-    ENGINE_OILS.amsoil_sig_5w30,
-    ENGINE_OILS.liquimoly_10w40,
-  ];
+  return Object.values(ENGINE_OILS);
 }
 
 function standardEngineOils4b11() {
-  return [
-    ENGINE_OILS.mobil1_5w30,
-    ENGINE_OILS.castrol_edge_5w30,
-    ENGINE_OILS.motul_8100_5w40,
-    ENGINE_OILS.redline_5w30,
-    ENGINE_OILS.amsoil_sig_5w30,
-    ENGINE_OILS.idemitsu_5w30,
-  ];
+  return Object.values(ENGINE_OILS);
 }
 
 function standardTransOils() {
-  return [
-    TRANS_OILS.redline_mt85,
-    TRANS_OILS.redline_mt90,
-    TRANS_OILS.motul_gear300_75w90,
-    TRANS_OILS.penzoil_synchromesh,
-  ];
+  return Object.values(TRANS_OILS);
 }
 
 function standardDiffOils() {
-  return [
-    DIFF_OILS.redline_heavy_shockproof,
-    DIFF_OILS.motul_gear300_75w90,
-    DIFF_OILS.amsoil_severe_75w90,
-  ];
+  return Object.values(DIFF_OILS);
 }
 
 function standardTransferOils() {
-  return [
-    TRANSFER_OILS.redline_75w90,
-    TRANSFER_OILS.motul_gear_ff,
-    TRANSFER_OILS.amsoil_severe_75w90,
-  ];
+  return Object.values(TRANSFER_OILS);
 }
 
 export const EVO_DATA: EVOModel[] = [
@@ -211,12 +185,10 @@ export const EVO_DATA: EVOModel[] = [
     specs: {
       GSR: {
         engineOil: { capacity: '5.1 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M33 5 velocidades' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M33 5 velocidades' },
         frontDiff: { capacity: 'N/A', viscosity: '-', apiSpec: '-', notes: 'Diferencial abierto, sin servicio separado' },
-        rearDiff: { capacity: '0.4 L + 0.7 L AYC + 1.0 L AYC pipework', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack. AYC usa ATF SP-III' },
-        aycFluid: { capacity: '0.7 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch AYC' },
-        aycPipework: { capacity: '1.0 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Tuberías y bomba AYC' },
-        transferCase: { capacity: '0.6 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
+        rearDiff: { capacity: '0.4 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial estándar (GSR)' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -224,10 +196,10 @@ export const EVO_DATA: EVOModel[] = [
       },
       RS: {
         engineOil: { capacity: '5.1 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M33 5 velocidades' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M33 5 velocidades' },
         frontDiff: { capacity: 'N/A', viscosity: '-', apiSpec: '-', notes: 'Diferencial abierto, sin servicio separado' },
-        rearDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'LSD mecánico de placa 1.5-way' },
-        transferCase: { capacity: '0.6 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90 LS', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa 1.5-way' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -247,12 +219,12 @@ export const EVO_DATA: EVOModel[] = [
     specs: {
       GSR: {
         engineOil: { capacity: '5.1 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M33 5 velocidades' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M33 5 velocidades' },
         frontDiff: { capacity: 'N/A', viscosity: '-', apiSpec: '-', notes: 'Diferencial abierto, sin servicio separado' },
-        rearDiff: { capacity: '0.4 L + 0.7 L AYC + 1.0 L AYC pipework', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
+        rearDiff: { capacity: '0.4 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial estándar (GSR)' },
         aycFluid: { capacity: '0.7 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch AYC' },
         aycPipework: { capacity: '1.0 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Tuberías y bomba AYC' },
-        transferCase: { capacity: '0.6 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -260,10 +232,10 @@ export const EVO_DATA: EVOModel[] = [
       },
       RS: {
         engineOil: { capacity: '5.1 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M33 5 velocidades' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M33 5 velocidades' },
         frontDiff: { capacity: 'N/A', viscosity: '-', apiSpec: '-', notes: 'Diferencial abierto, sin servicio separado' },
-        rearDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'LSD mecánico de placa 1.5-way' },
-        transferCase: { capacity: '0.6 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90 LS', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa 1.5-way' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -283,12 +255,12 @@ export const EVO_DATA: EVOModel[] = [
     specs: {
       GSR: {
         engineOil: { capacity: '5.1 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M33 5 velocidades' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M33 5 velocidades' },
         frontDiff: { capacity: 'N/A', viscosity: '-', apiSpec: '-', notes: 'Diferencial abierto, sin servicio separado' },
-        rearDiff: { capacity: '0.4 L + 0.7 L AYC + 1.0 L AYC pipework', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
+        rearDiff: { capacity: '0.4 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial estándar (GSR)' },
         aycFluid: { capacity: '0.7 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch AYC' },
         aycPipework: { capacity: '1.0 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Tuberías y bomba AYC' },
-        transferCase: { capacity: '0.6 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -296,10 +268,10 @@ export const EVO_DATA: EVOModel[] = [
       },
       RS: {
         engineOil: { capacity: '5.1 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M33 5 velocidades' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M33 5 velocidades' },
         frontDiff: { capacity: 'N/A', viscosity: '-', apiSpec: '-', notes: 'Diferencial abierto, sin servicio separado' },
-        rearDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'LSD mecánico de placa 1.5-way' },
-        transferCase: { capacity: '0.6 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90 LS', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa 1.5-way' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -307,10 +279,10 @@ export const EVO_DATA: EVOModel[] = [
       },
       TME: {
         engineOil: { capacity: '5.1 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Tommi Makinen Edition. Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M33 5 velocidades' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M33 5 velocidades' },
         frontDiff: { capacity: 'N/A', viscosity: '-', apiSpec: '-', notes: 'Diferencial abierto, sin servicio separado' },
-        rearDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'LSD mecánico de placa 1.5-way' },
-        transferCase: { capacity: '0.6 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90 LS', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa 1.5-way' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Acoplamiento viscoso central' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -330,11 +302,11 @@ export const EVO_DATA: EVOModel[] = [
     specs: {
       GSR: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M6A 5 velocidades' },
-        frontDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (compartido con transfer case)' },
-        rearDiff: { capacity: '0.55 L + 0.7 L AYC', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M6A 5 velocidades' },
+        frontDiff: { capacity: '0.55 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (compartido con transfer case)' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
         aycFluid: { capacity: '0.65 - 0.70 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch AYC' },
-        transferCase: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Sin ACD en VII base' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Con ACD (Active Center Differential)' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -342,10 +314,10 @@ export const EVO_DATA: EVOModel[] = [
       },
       RS: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M6A 5 velocidades' },
-        frontDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (compartido con transfer case)' },
-        rearDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa' },
-        transferCase: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Sin ACD en RS' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M6A 5 velocidades' },
+        frontDiff: { capacity: '0.60 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90 LS', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Sin ACD en RS' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -365,11 +337,11 @@ export const EVO_DATA: EVOModel[] = [
     specs: {
       GSR: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M6A 5 velocidades' },
-        frontDiff: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
-        rearDiff: { capacity: '0.55 L + 0.7 L AYC', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M6A 5 velocidades' },
+        frontDiff: { capacity: '0.60 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
         aycFluid: { capacity: '0.65 - 0.70 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch AYC' },
-        transferCase: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Con ACD (Active Center Differential)' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Con ACD (Active Center Differential)' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -377,10 +349,10 @@ export const EVO_DATA: EVOModel[] = [
       },
       RS: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M6A 5 velocidades' },
-        frontDiff: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD' },
-        rearDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa' },
-        transferCase: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Sin ACD en RS' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M6A 5 velocidades' },
+        frontDiff: { capacity: '0.60 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90 LS', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Sin ACD en RS' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -388,17 +360,13 @@ export const EVO_DATA: EVOModel[] = [
       },
       MR: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.2 L', viscosity: '75W-85', apiSpec: 'GL-4', notes: 'Caja W6DGA 6 velocidades' },
-        frontDiff: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
-        rearDiff: { capacity: '0.55 L + 0.7 L AYC', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
+        transmissionOil: { capacity: '2.2 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W6DGA 6 velocidades' },
+        frontDiff: { capacity: '0.60 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Open diff + AYC clutch pack' },
         aycFluid: { capacity: '0.65 - 0.70 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch AYC' },
-        transferCase: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Con ACD (Active Center Differential)' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Con ACD (Active Center Differential)' },
         recommendedEngineOils: standardEngineOils4g63(),
-        recommendedTransOils: [
-          TRANS_OILS.redline_mtl,
-          TRANS_OILS.penzoil_synchromesh,
-          TRANS_OILS.redline_mt85,
-        ],
+        recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
         recommendedTransferOils: standardTransferOils(),
       },
@@ -416,11 +384,11 @@ export const EVO_DATA: EVOModel[] = [
     specs: {
       GSR: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M6A 5 velocidades' },
-        frontDiff: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
-        rearDiff: { capacity: '0.55 L + 0.7 L SAYC', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + SAYC (Super AYC)' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M6A 5 velocidades' },
+        frontDiff: { capacity: '0.60 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Open diff + SAYC (Super AYC)' },
         aycFluid: { capacity: '0.65 - 0.70 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch SAYC' },
-        transferCase: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Con ACD (Active Center Differential)' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Con ACD (Active Center Differential)' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -428,10 +396,10 @@ export const EVO_DATA: EVOModel[] = [
       },
       RS: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.8 L', viscosity: '75W-80', apiSpec: 'GL-3 (o GL-4)', notes: 'Caja W5M6A 5 velocidades' },
-        frontDiff: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD' },
-        rearDiff: { capacity: '0.55 L', viscosity: 'SAE 90', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa' },
-        transferCase: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Sin ACD en RS' },
+        transmissionOil: { capacity: '2.8 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W5M6A 5 velocidades' },
+        frontDiff: { capacity: '0.60 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90 LS', apiSpec: 'GL-5 LS', notes: 'LSD mecánico de placa' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Sin ACD en RS' },
         recommendedEngineOils: standardEngineOils4g63(),
         recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
@@ -439,17 +407,13 @@ export const EVO_DATA: EVOModel[] = [
       },
       MR: {
         engineOil: { capacity: '5.6 L (con filtro y oil cooler)', viscosity: '10W-30', apiSpec: 'API SG o superior', notes: 'Synthetic full. Alternativas: 5W-30, 5W-40, 10W-40' },
-        transmissionOil: { capacity: '2.2 L', viscosity: '75W-85', apiSpec: 'GL-4', notes: 'Caja W6DGA 6 velocidades' },
-        frontDiff: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
-        rearDiff: { capacity: '0.55 L + 0.7 L SAYC', viscosity: 'SAE 90 / ATF SP-III', apiSpec: 'GL-5', notes: 'Open diff + SAYC (Super AYC)' },
+        transmissionOil: { capacity: '2.2 L', viscosity: '75W-90', apiSpec: 'GL-4 sintético', notes: 'Caja W6DGA 6 velocidades' },
+        frontDiff: { capacity: '0.60 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Diferencial helical LSD (con ACD)' },
+        rearDiff: { capacity: '0.55 L', viscosity: '75W-90', apiSpec: 'GL-5', notes: 'Open diff + SAYC (Super AYC)' },
         aycFluid: { capacity: '0.65 - 0.70 L', viscosity: 'ATF SP-III', apiSpec: 'Mitsubishi Diamond ATF SP-III', notes: 'Baño de clutch SAYC' },
-        transferCase: { capacity: '0.60 L', viscosity: 'SAE 90', apiSpec: 'GL-5', notes: 'Con ACD (Active Center Differential)' },
+        transferCase: { capacity: '0.6 L', viscosity: '75W-90', apiSpec: 'GL-5 LS', notes: 'Con ACD (Active Center Differential)' },
         recommendedEngineOils: standardEngineOils4g63(),
-        recommendedTransOils: [
-          TRANS_OILS.redline_mtl,
-          TRANS_OILS.penzoil_synchromesh,
-          TRANS_OILS.redline_mt85,
-        ],
+        recommendedTransOils: standardTransOils(),
         recommendedDiffOils: standardDiffOils(),
         recommendedTransferOils: standardTransferOils(),
       },
