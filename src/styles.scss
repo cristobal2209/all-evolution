@@ -1,0 +1,75 @@
+@use '@angular/material' as mat;
+
+:root {
+  --accent-color: #e63946;
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+}
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$red-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: dark;
+  background-color: var(--bg-primary);
+  color: rgba(255, 255, 255, 0.87);
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.mat-mdc-tab-group {
+  --mat-tab-header-active-focus-indicator-color: var(--accent-color);
+  --mat-tab-header-active-hover-indicator-color: var(--accent-color);
+  --mat-tab-header-active-indicator-color: var(--accent-color);
+}
+
+.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+  color: var(--accent-color) !important;
+}
+
+.mat-mdc-tab-body-content {
+  overflow: hidden !important;
+}
+
+.mat-mdc-expansion-panel-header:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.mat-mdc-table {
+  background: transparent !important;
+}

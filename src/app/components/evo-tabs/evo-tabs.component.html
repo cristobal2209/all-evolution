@@ -1,0 +1,246 @@
+<div class="evo-container">
+  <header class="evo-header">
+    <h1>ALL EVOLUTION</h1>
+    <p>La información en un solo lugar</p>
+  </header>
+
+  <mat-tab-group class="evo-tabs" animationDuration="200ms">
+    @for (model of evoModels; track model.id) {
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="tab-label">EVO {{ model.id }}</span>
+        </ng-template>
+
+        <div class="tab-content">
+          <div class="model-header">
+            <div class="model-title-row">
+              <h2>{{ model.name }}</h2>
+              <span class="model-badge">{{ model.generation }}</span>
+            </div>
+            <div class="model-info">
+              <div class="info-item">
+                <span class="info-label">Chasis</span>
+                <span class="info-value">{{ model.chassis }}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Años</span>
+                <span class="info-value">{{ model.years }}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Motor</span>
+                <span class="info-value">{{ model.engine }}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Potencia</span>
+                <span class="info-value">{{ model.power }}</span>
+              </div>
+            </div>
+          </div>
+
+          @if (model.variants.length > 1) {
+            <div class="variant-selector">
+              <span class="variant-label">Versión:</span>
+              <div class="variant-buttons">
+                @for (variant of model.variants; track variant) {
+                  <button
+                    class="variant-btn"
+                    [class.active]="selectedVariant[model.id] === variant"
+                    (click)="onVariantChange(model.id, variant)">
+                    {{ variant }}
+                  </button>
+                }
+              </div>
+            </div>
+          }
+
+          <mat-accordion class="fluid-accordion" multi>
+            <mat-expansion-panel class="fluid-panel" expanded>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>oil_barrel</mat-icon>
+                  Aceite de Motor
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="fluid-specs">
+                <div class="spec-row">
+                  <span class="spec-label">Capacidad:</span>
+                  <span class="spec-value">{{ getSpecs(model).engineOil.capacity }}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Viscosidad OEM:</span>
+                  <span class="spec-value highlight">{{ getSpecs(model).engineOil.viscosity }}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Especificación:</span>
+                  <span class="spec-value">{{ getSpecs(model).engineOil.apiSpec }}</span>
+                </div>
+                @if (getSpecs(model).engineOil.notes) {
+                  <div class="spec-notes">{{ getSpecs(model).engineOil.notes }}</div>
+                }
+              </div>
+
+              <app-fluid-table
+                title="Aceites Recomendados"
+                [oils]="getSpecs(model).recommendedEngineOils" />
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="fluid-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>settings</mat-icon>
+                  Aceite de Caja de Transmisión
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="fluid-specs">
+                <div class="spec-row">
+                  <span class="spec-label">Capacidad:</span>
+                  <span class="spec-value">{{ getSpecs(model).transmissionOil.capacity }}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Viscosidad OEM:</span>
+                  <span class="spec-value highlight">{{ getSpecs(model).transmissionOil.viscosity }}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Especificación:</span>
+                  <span class="spec-value">{{ getSpecs(model).transmissionOil.apiSpec }}</span>
+                </div>
+                @if (getSpecs(model).transmissionOil.notes) {
+                  <div class="spec-notes">{{ getSpecs(model).transmissionOil.notes }}</div>
+                }
+              </div>
+
+              <app-fluid-table
+                title="Aceites Recomendados"
+                [oils]="getSpecs(model).recommendedTransOils" />
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="fluid-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>settings_suggest</mat-icon>
+                  Diferenciales
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              @if (getSpecs(model).frontDiff) {
+                <div class="diff-section">
+                  <h4 class="diff-title">Diferencial Frontal</h4>
+                  <div class="fluid-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Capacidad:</span>
+                      <span class="spec-value">{{ getSpecs(model).frontDiff!.capacity }}</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Viscosidad:</span>
+                      <span class="spec-value highlight">{{ getSpecs(model).frontDiff!.viscosity }}</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Especificación:</span>
+                      <span class="spec-value">{{ getSpecs(model).frontDiff!.apiSpec }}</span>
+                    </div>
+                    @if (getSpecs(model).frontDiff!.notes) {
+                      <div class="spec-notes">{{ getSpecs(model).frontDiff!.notes }}</div>
+                    }
+                  </div>
+                </div>
+              }
+
+              <div class="diff-section">
+                <h4 class="diff-title">Diferencial Trasero</h4>
+                <div class="fluid-specs">
+                  <div class="spec-row">
+                    <span class="spec-label">Capacidad:</span>
+                    <span class="spec-value">{{ getSpecs(model).rearDiff.capacity }}</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">Viscosidad:</span>
+                    <span class="spec-value highlight">{{ getSpecs(model).rearDiff.viscosity }}</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">Especificación:</span>
+                    <span class="spec-value">{{ getSpecs(model).rearDiff.apiSpec }}</span>
+                  </div>
+                  @if (getSpecs(model).rearDiff.notes) {
+                    <div class="spec-notes">{{ getSpecs(model).rearDiff.notes }}</div>
+                  }
+                </div>
+              </div>
+
+              @if (getSpecs(model).aycFluid) {
+                <div class="diff-section">
+                  <h4 class="diff-title">AYC / SAYC</h4>
+                  <div class="fluid-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Capacidad (baño clutch):</span>
+                      <span class="spec-value">{{ getSpecs(model).aycFluid!.capacity }}</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Fluido:</span>
+                      <span class="spec-value highlight">{{ getSpecs(model).aycFluid!.viscosity }}</span>
+                    </div>
+                    @if (getSpecs(model).aycFluid!.notes) {
+                      <div class="spec-notes">{{ getSpecs(model).aycFluid!.notes }}</div>
+                    }
+                  </div>
+                </div>
+
+                @if (getSpecs(model).aycPipework) {
+                  <div class="diff-section">
+                    <h4 class="diff-title">Tuberías y Bomba AYC</h4>
+                    <div class="fluid-specs">
+                      <div class="spec-row">
+                        <span class="spec-label">Capacidad:</span>
+                        <span class="spec-value">{{ getSpecs(model).aycPipework!.capacity }}</span>
+                      </div>
+                      <div class="spec-row">
+                        <span class="spec-label">Fluido:</span>
+                        <span class="spec-value highlight">{{ getSpecs(model).aycPipework!.viscosity }}</span>
+                      </div>
+                    </div>
+                  </div>
+                }
+              }
+
+              <app-fluid-table
+                title="Aceites Recomendados para Diferenciales"
+                [oils]="getSpecs(model).recommendedDiffOils" />
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="fluid-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>swap_horiz</mat-icon>
+                  Case Transfer
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="fluid-specs">
+                <div class="spec-row">
+                  <span class="spec-label">Capacidad:</span>
+                  <span class="spec-value">{{ getSpecs(model).transferCase.capacity }}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Viscosidad OEM:</span>
+                  <span class="spec-value highlight">{{ getSpecs(model).transferCase.viscosity }}</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label">Especificación:</span>
+                  <span class="spec-value">{{ getSpecs(model).transferCase.apiSpec }}</span>
+                </div>
+                @if (getSpecs(model).transferCase.notes) {
+                  <div class="spec-notes">{{ getSpecs(model).transferCase.notes }}</div>
+                }
+              </div>
+
+              <app-fluid-table
+                title="Aceites Recomendados"
+                [oils]="getSpecs(model).recommendedTransferOils" />
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-tab>
+    }
+  </mat-tab-group>
+</div>
